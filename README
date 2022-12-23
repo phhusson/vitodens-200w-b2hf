@@ -1,0 +1,23 @@
+This is merely some notes about trying to discover additional control features for Vitodens 200-W B2HF gas boiler.
+
+There is a public API provided by Viessmann over the internet, but control is likely limited (though to be confirmed).
+
+The goal is to be able to programmatically control the target outgoing water temperature (there are multiple heat sources in the home, which make it hard for Viessmann's thermostat to work)
+
+Areas explored:
+
+
+== Access over serial port
+
+- There is a port on "X6" with TX/RX/GND (expected to be UART) of electronic control board. (called BCU in french). We're expecting a protocol similar to optolink, but this hasn't been confirmed
+Accessing this serial port is kinda ok, it does require dismantling few panels. However it uses an unknown connector
+
+== Access over WLAN AP
+
+https://github.com/sarnau/InsideViessmannVitosoft/ Mention a kinda sorta serial over WiFi/AP ('10.45.161.1', 45317). However connecting to the AP, raises 192.168.0.X IP, and 45317 port doesn't raise anything
+
+== Access over Internet/API
+
+Viessmann's documentation is very light when it comes to available commands. To be able to run commands, one needs to do whole create API key, create oauth token, etc... shennanigans so it hasn't been tried yet.
+The API does provide an endpoint to know the list of available commands, so just connecting to it would help determine its usefullness.
+
