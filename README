@@ -21,3 +21,10 @@ https://github.com/sarnau/InsideViessmannVitosoft/ Mention a kinda sorta serial 
 Viessmann's documentation is very light when it comes to available commands. To be able to run commands, one needs to do whole create API key, create oauth token, etc... shennanigans so it hasn't been tried yet.
 The API does provide an endpoint to know the list of available commands, so just connecting to it would help determine its usefullness.
 
+
+== Access over CAN
+
+This one, we're pretty confident we should be able to attain our goals, however it might be complicated.
+The reason we are pretty confident, is that the touchscreen front panel, which can control target outgoing water temperature, is connected to the power board over CAN (X4 connector over board, which lists only 24V and CAN in the schematics).
+
+There are many CAN connectors exposed over power board (The X4 one mentioned previously, but there are also two "91" connectors with two CANs, and one switch to select termination, X5 as well which goes to "CPU" board). The question will be to know whether they all are on the same bus or not.
